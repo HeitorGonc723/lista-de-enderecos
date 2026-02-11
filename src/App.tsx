@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import { LuCheck, LuTrash } from 'react-icons/lu'
+import { LuCheck } from 'react-icons/lu'
 
 interface IErro {
   active: boolean
@@ -23,7 +23,7 @@ interface IEndereco {
 
 interface IAjustarEndereco {
   id: string
-  tipo: "ATUALIZAR" | "EXCLUIR"
+  tipo: "ATUALIZAR"
 }
 
 export function App() {
@@ -42,8 +42,6 @@ export function App() {
     active: false,
     description: ""
   })
-  const [mostrarModal, setMostrarModal] = useState<boolean>(false)
-  const [idEnderecoSelecionado, setIdEnderecoSelecionado] = useState<string>("")
 
   function adicionarEndereco(): void {
     if (
@@ -98,16 +96,10 @@ export function App() {
     setErro({ active: false, description: "" })
   }
 
-  function ajustarEndereco({ id, tipo }: IAjustarEndereco): void {
-    if (tipo === "ATUALIZAR") {
-      setEnderecos(enderecos.map(endereco =>
-        endereco.id === id ? { ...endereco, ativo: false } : endereco
-      ))
-    }
-
-    if (tipo === "EXCLUIR") {
-      setEnderecos(enderecos.filter(endereco => endereco.id !== id))
-    }
+  function ajustarEndereco({ id }: IAjustarEndereco): void {
+    setEnderecos(enderecos.map(endereco =>
+      endereco.id === id ? { ...endereco, ativo: false } : endereco
+    ))
   }
 
   return (
@@ -165,19 +157,11 @@ export function App() {
       <ul>
         {enderecos.map((endereco) => (
           <div className='item-list' key={endereco.id}>
-            <li className={endereco.ativo ? '' : 'concluido'}>
+            <li>
               <strong>{endereco.nome}</strong><br />
               {endereco.rua}, {endereco.numero} – {endereco.bairro}<br />
               {endereco.cidade}/{endereco.estado} – CEP: {endereco.cep}
             </li>
-
-            <LuTrash
-              style={{ cursor: 'pointer' }}
-              onClick={() => {
-                setIdEnderecoSelecionado(endereco.id)
-                setMostrarModal(true)
-              }}
-            />
 
             <LuCheck
               style={{ cursor: 'pointer' }}
@@ -188,24 +172,6 @@ export function App() {
           </div>
         ))}
       </ul>
-
-      {mostrarModal && (
-        <div className='modal-wrapper'>
-          <div className="modal">
-            <h1>Remover Endereço</h1>
-            <h3>Deseja confirmar a exclusão?</h3>
-            <div className='modal-buttons'>
-              <button onClick={() => setMostrarModal(false)}>NÃO</button>
-              <button onClick={() => {
-                ajustarEndereco({ id: idEnderecoSelecionado, tipo: "EXCLUIR" })
-                setMostrarModal(false)
-              }}>
-                SIM
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </>
   )
 }
