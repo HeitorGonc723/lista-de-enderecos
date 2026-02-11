@@ -79,29 +79,10 @@ ul {
   max-width: 900px;
 }
 
-.item-list {
-  background: #2a2a2a;
-  border: 1px solid #444;
-  padding: 10px;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.item-list li {
+ul li {
+  margin-bottom: 16px;
   font-size: 14px;
   line-height: 1.4;
-}
-
-.item-list svg {
-  cursor: pointer;
-  margin-left: 8px;
-}
-
-.concluido {
-  opacity: 0.6;
-  text-decoration: line-through;
 }
 
 .modal-wrapper {
