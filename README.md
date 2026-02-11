@@ -15,4 +15,4 @@ criação de um software, tanto teórico/documental quanto prático.
 
 [Adicionar funcionamento do cadastro.](https://github.com/danielvalmeida91/rpv-todo-list-typescript/issues/8) - ✅ Finalizado 
 
-[Criar a listagem dos endereços.](https://github.com/danielvalmeida91/rpv-todo-list-typescript/issues/9) - ⚠️ A desenvolver 
+[Criar a listagem dos endereços.](https://github.com/danielvalmeida91/rpv-todo-list-typescript/issues/9) - ✅ Finalizado
