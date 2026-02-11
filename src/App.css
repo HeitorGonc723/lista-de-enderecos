@@ -1,0 +1,79 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.erro {
+  position: absolute;
+  color: red;
+  font-size: 12px;
+  top: 24px;
+}
+
+.item-list {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+
+  li {
+    min-width: 200px;
+    text-align: left;
+  }
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.concluido {
+  text-decoration-line: line-through;
+  color: #676666;
+}
+
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(215, 213, 213, 0.12);
+  z-index: 9999;
+}
+
+.modal {
+  max-width: 400px;
+  padding: 24px;
+  background-color: #fafafa;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-direction: column;
+  color: #202020;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
